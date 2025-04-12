@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GYM MASTER</string>
+    
+    <!-- Authentication -->
+    <string name="welcome_back">مرحباً بعودتك!</string>
+    <string name="create_account">إنشاء حساب</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="sign_up">إنشاء حساب</string>
+    <string name="no_account">ليس لديك حساب؟ سجل الآن</string>
+    <string name="have_account">لديك حساب بالفعل؟ سجل دخول</string>
+    <string name="fill_fields">يرجى ملء جميع الحقول</string>
+    <string name="auth_failed">فشل المصادقة: %1$s</string>
+    <string name="registration_failed">فشل التسجيل: %1$s</string>
+    <string name="profile_update_failed">فشل تحديث الملف الشخصي: %1$s</string>
+
+    <!-- Bottom Navigation -->
+    <string name="title_home">الرئيسية</string>
+    <string name="title_training">التدريب</string>
+    <string name="title_diet">النظام الغذائي</string>
+    <string name="title_settings">الإعدادات</string>
+
+    <!-- Training Programs -->
+    <string name="program_beginner">برنامج المبتدئين</string>
+    <string name="program_intermediate">برنامج متوسط المستوى</string>
+    <string name="program_advanced">برنامج متقدم</string>
+    <string name="program_duration_weeks">%1$d أسابيع</string>
+    <string name="day_exercises">%1$d تمارين</string>
+    <string name="day_duration">%1$d دقيقة</string>
+    <string name="day_rest">يوم راحة</string>
+    <string name="day_number">اليوم %1$d</string>
+    <string name="program_details">تفاصيل البرنامج</string>
+
+    <!-- Exercises -->
+    <string name="exercise_bench_press">بينش بريس</string>
+    <string name="exercise_bench_press_desc">استلق على مقعد مستوٍ، امسك البار بعرض أوسع قليلاً من عرض الكتفين، اخفضه إلى صدرك، ثم ادفعه للأعلى.</string>
+    <string name="training_programs">برامج التدريب</string>
+    <string name="exercises">التمارين</string>
+    <string name="exercise_sets">%1$d مجموعات</string>
+    <string name="exercise_reps">%1$s تكرار</string>
+    <string name="exercise_rest">راحة: %1$d ثانية</string>
+
+    <!-- Chest Exercises -->
+    <string name="exercise_incline_dumbbell_press">بينش دمبل مائل</string>
+    <string name="exercise_dumbbell_flyes">فلاي بالدمبل</string>
+    <string name="exercise_pushups">تمارين الضغط</string>
+    <string name="exercise_cable_crossover">كيبل كروس أوفر</string>
+
+    <!-- Chest Exercise Descriptions -->
+    <string name="exercise_incline_dumbbell_press_desc">مشابه لتمرين البينش بريس ولكن يتم تنفيذه على مقعد مائل باستخدام الدمبل. يستهدف هذا التمرين الجزء العلوي من الصدر بشكل أكثر فعالية. حافظ على شد عضلات البطن وتحكم في الحركة.</string>
+    <string name="exercise_dumbbell_flyes_desc">تمرين عزل لعضلات الصدر. استلق على مقعد مستوٍ مع الدمبل، ابدأ بالذراعين ممدودتين فوق الصدر، ثم اخفضهما إلى الجانبين في حركة قوسية مع الحفاظ على انحناء خفيف في المرفقين.</string>
+    <string name="exercise_pushups_desc">تمرين مركب باستخدام وزن الجسم يستهدف الصدر والكتفين والترايسبس. ابدأ في وضعية البلانك، اخفض جسمك حتى يكاد صدرك يلمس الأرض مع الحفاظ على استقامة جسمك، ثم ادفع للأعلى.</string>
+    <string name="exercise_cable_crossover_desc">تمرين عزل لتحديد عضلات الصدر. قف بين أجهزة الكيبل، اسحب الكيبلات للأمام وللأسفل في حركة قوسية، مع التركيز على ضغط عضلات الصدر في نقطة الانقباض القصوى.</string>
+</resources> 

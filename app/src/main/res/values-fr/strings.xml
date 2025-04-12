@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GYM MASTER</string>
+    
+    <!-- Authentication -->
+    <string name="welcome_back">Bon retour!</string>
+    <string name="create_account">Créer un compte</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="full_name">Nom complet</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="no_account">Pas de compte? Inscrivez-vous</string>
+    <string name="have_account">Déjà un compte? Connectez-vous</string>
+    <string name="fill_fields">Veuillez remplir tous les champs</string>
+    <string name="auth_failed">Échec de l\'authentification: %1$s</string>
+    <string name="registration_failed">Échec de l\'inscription: %1$s</string>
+    <string name="profile_update_failed">Échec de la mise à jour du profil: %1$s</string>
+
+    <!-- Bottom Navigation -->
+    <string name="title_home">Accueil</string>
+    <string name="title_training">Entraînement</string>
+    <string name="title_diet">Régime</string>
+    <string name="title_settings">Paramètres</string>
+
+    <!-- Training Programs -->
+    <string name="program_beginner">Programme Débutant</string>
+    <string name="program_intermediate">Programme Intermédiaire</string>
+    <string name="program_advanced">Programme Avancé</string>
+    <string name="program_duration_weeks">%1$d Semaines</string>
+    <string name="day_exercises">%1$d Exercices</string>
+    <string name="day_duration">%1$d min</string>
+    <string name="day_rest">Jour de Repos</string>
+    <string name="day_number">Jour %1$d</string>
+
+    <!-- Exercises -->
+    <string name="exercise_bench_press">Développé couché</string>
+    <string name="exercise_incline_dumbbell_press">Développé incliné aux haltères</string>
+    <string name="exercise_dumbbell_flyes">Écartés aux haltères</string>
+    <string name="exercise_pushups">Pompes</string>
+    <string name="exercise_cable_crossover">Croisé à la poulie</string>
+
+    <string name="exercise_pullups">Tractions</string>
+    <string name="exercise_barbell_rows">Rowing barre</string>
+    <string name="exercise_lat_pulldown">Tirage poitrine</string>
+    <string name="exercise_seated_cable_rows">Rowing assis à la poulie</string>
+    <string name="exercise_face_pulls">Tirage visage</string>
+
+    <!-- Add this to the French strings -->
+    <string name="program_details">Détails du Programme</string>
+    <string name="training_programs">programmes dentrainement</string>
+    <string name="exercises">Exercices</string>
+    <string name="exercise_sets">%1$d séries</string>
+    <string name="exercise_reps">%1$s répétitions</string>
+    <string name="exercise_rest">Repos: %1$d sec</string>
+
+    <!-- Exercise Descriptions -->
+    <string name="exercise_bench_press_desc">Un exercice composé qui cible la poitrine, les deltoïdes antérieurs et les triceps. Allongez-vous sur un banc plat, saisissez la barre légèrement plus large que les épaules, descendez-la vers la poitrine avec contrôle, puis poussez vers le haut.</string>
+    <string name="exercise_incline_dumbbell_press_desc">Similaire au développé couché mais effectué sur un banc incliné avec des haltères. Cette variation cible plus efficacement le haut de la poitrine. Gardez les abdominaux contractés et maintenez le contrôle pendant le mouvement.</string>
+    <string name="exercise_dumbbell_flyes_desc">Un exercice d\'isolation pour la poitrine. Allongez-vous sur un banc plat avec des haltères, commencez avec les bras tendus au-dessus de la poitrine, puis abaissez-les sur les côtés dans un mouvement en arc tout en maintenant une légère flexion des coudes.</string>
+    <string name="exercise_pushups_desc">Un exercice composé au poids du corps ciblant la poitrine, les épaules et les triceps. Commencez en position de planche, abaissez votre corps jusqu\'à ce que votre poitrine touche presque le sol tout en gardant votre corps droit, puis poussez vers le haut.</string>
+    <string name="exercise_cable_crossover_desc">Un exercice d\'isolation pour la définition de la poitrine. Tenez-vous entre les machines à câbles, tirez les câbles vers l\'avant et vers le bas dans un mouvement en arc, en vous concentrant sur la contraction de la poitrine au point de contraction maximale.</string>
+</resources> 

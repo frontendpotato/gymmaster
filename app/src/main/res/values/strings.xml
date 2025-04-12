@@ -1,0 +1,202 @@
+<resources>
+    <string name="app_name">GYM MASTER</string>
+
+    <!-- Authentication -->
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="create_account">Create Account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="no_account">Don\'t have an account? Sign up</string>
+    <string name="have_account">Already have an account? Sign in</string>
+    <string name="fill_fields">Please fill all fields</string>
+    <string name="auth_failed">Authentication failed: %1$s</string>
+    <string name="registration_failed">Registration failed: %1$s</string>
+    <string name="profile_update_failed">Failed to update profile: %1$s</string>
+
+    <!-- Bottom Navigation -->
+    <string name="title_home">Home</string>
+    <string name="title_training">Training</string>
+    <string name="title_diet">Diet</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- Training Programs -->
+    <string name="program_beginner">Beginner Program</string>
+    <string name="program_intermediate">Intermediate Program</string>
+    <string name="program_advanced">Advanced Program</string>
+    <string name="program_duration_weeks">%1$d Weeks</string>
+    <string name="day_exercises">%1$d Exercises</string>
+    <string name="day_duration">%1$d min</string>
+    <string name="day_rest">Rest Day</string>
+    <string name="day_number">Day %1$d</string>
+
+    <!-- Exercises -->
+    <string name="exercise_bench_press">Bench Press</string>
+    <string name="exercise_incline_dumbbell_press">Incline Dumbbell Press</string>
+    <string name="exercise_dumbbell_flyes">Dumbbell Flyes</string>
+    <string name="exercise_pushups">Push-ups</string>
+    <string name="exercise_cable_crossover">Cable Crossover</string>
+
+    <string name="exercise_pullups">Pull-ups</string>
+    <string name="exercise_barbell_rows">Barbell Rows</string>
+    <string name="exercise_lat_pulldown">Lat Pulldown</string>
+    <string name="exercise_seated_cable_rows">Seated Cable Rows</string>
+    <string name="exercise_face_pulls">Face Pulls</string>
+
+    <string name="exercise_overhead_press">Overhead Press</string>
+    <string name="exercise_lateral_raises">Lateral Raises</string>
+    <string name="exercise_front_raises">Front Raises</string>
+    <string name="exercise_reverse_flyes">Reverse Flyes</string>
+    <string name="exercise_shrugs">Shrugs</string>
+
+    <string name="exercise_barbell_curls">Barbell Curls</string>
+    <string name="exercise_hammer_curls">Hammer Curls</string>
+    <string name="exercise_incline_curls">Incline Curls</string>
+    <string name="exercise_preacher_curls">Preacher Curls</string>
+    <string name="exercise_concentration_curls">Concentration Curls</string>
+
+    <string name="exercise_tricep_pushdown">Tricep Pushdown</string>
+    <string name="exercise_skull_crushers">Skull Crushers</string>
+    <string name="exercise_overhead_extension">Overhead Extension</string>
+    <string name="exercise_diamond_pushups">Diamond Push-ups</string>
+    <string name="exercise_tricep_dips">Tricep Dips</string>
+
+    <string name="exercise_squats">Squats</string>
+    <string name="exercise_deadlifts">Deadlifts</string>
+    <string name="exercise_leg_press">Leg Press</string>
+    <string name="exercise_lunges">Lunges</string>
+    <string name="exercise_calf_raises">Calf Raises</string>
+
+    <string name="exercise_crunches">Crunches</string>
+    <string name="exercise_plank">Plank</string>
+    <string name="exercise_leg_raises">Leg Raises</string>
+    <string name="exercise_russian_twists">Russian Twists</string>
+    <string name="exercise_mountain_climbers">Mountain Climbers</string>
+
+    <!-- Exercise Descriptions -->
+    <string name="exercise_bench_press_desc">The bench press is a compound exercise that targets your chest, front deltoids, and triceps. Lie on a flat bench, grip the barbell slightly wider than shoulder width, lower it to your chest with control, then press it back up.</string>
+    <string name="exercise_incline_dumbbell_press_desc">Similar to the bench press but performed on an incline bench with dumbbells. This variation targets the upper chest more effectively. Keep your core tight and maintain control throughout the movement.</string>
+    <string name="exercise_dumbbell_flyes_desc">A chest isolation exercise. Lie on a flat bench with dumbbells, start with arms extended above chest, then lower them out to sides in a wide arc motion while maintaining a slight bend in elbows.</string>
+    <string name="exercise_pushups_desc">A bodyweight compound exercise targeting chest, shoulders, and triceps. Start in plank position, lower your body until chest nearly touches the ground while keeping your body straight, then push back up.</string>
+    <string name="exercise_cable_crossover_desc">An isolation exercise for chest definition. Stand between cable machines, pull cables forward and down in an arc motion, focusing on squeezing your chest at the point of maximum contraction.</string>
+
+    <string name="exercise_pullups_desc">A compound upper body exercise. Hang from a bar with palms facing away, pull yourself up until chin is over the bar while keeping core tight. Focus on using your back muscles to initiate the movement.</string>
+    <string name="exercise_barbell_rows_desc">A compound back exercise. Bend over with a barbell, keeping your back straight, pull the weight to your lower chest while squeezing your shoulder blades together. Lower with control.</string>
+    <string name="exercise_lat_pulldown_desc">A machine-based back exercise. Sit at a lat pulldown machine, grab the bar with a wide grip, and pull it down to your upper chest while keeping your torso upright. Focus on using your lats.</string>
+    <string name="exercise_seated_cable_rows_desc">A compound back exercise. Sit at a rowing machine with feet secured, pull the handle to your lower chest while keeping your back straight and chest up. Squeeze your shoulder blades together.</string>
+    <string name="exercise_face_pulls_desc">A rear deltoid and upper back exercise. Using a rope attachment on a high pulley, pull towards your face while keeping elbows high and squeezing shoulder blades together.</string>
+
+    <string name="exercise_overhead_press_desc">A compound shoulder exercise. Stand with barbell at shoulders, press it overhead until arms are fully extended. Keep core tight and avoid excessive back arch.</string>
+    <string name="exercise_lateral_raises_desc">An isolation exercise for side deltoids. Stand with dumbbells at sides, raise them out to shoulder level with slight bend in elbows. Control the movement and avoid swinging.</string>
+    <string name="exercise_front_raises_desc">An isolation exercise for front deltoids. Stand with dumbbells in front of thighs, raise them to shoulder level while keeping arms relatively straight. Maintain controlled movement.</string>
+    <string name="exercise_reverse_flyes_desc">Targets rear deltoids. Bend forward with dumbbells hanging down, raise them out to sides while keeping slight bend in elbows. Focus on squeezing shoulder blades together.</string>
+    <string name="exercise_shrugs_desc">An isolation exercise for trapezius muscles. Stand holding dumbbells at sides, elevate shoulders straight up toward ears. Hold the contraction briefly at the top.</string>
+
+    <string name="exercise_barbell_curls_desc">A compound bicep exercise. Stand with barbell at thighs, curl it up to shoulders while keeping upper arms still. Focus on full range of motion and controlled movement.</string>
+    <string name="exercise_hammer_curls_desc">A bicep variation that also targets forearms. Stand with dumbbells at sides, curl them up while keeping palms facing each other. Maintain controlled movement throughout.</string>
+    <string name="exercise_incline_curls_desc">A bicep isolation exercise. Sit on an incline bench, let arms hang straight down, curl dumbbells up while keeping upper arms still. This variation increases stretch on the biceps.</string>
+    <string name="exercise_preacher_curls_desc">An isolation exercise for biceps. Sit at preacher bench, rest arms on pad, curl weight up while keeping upper arms in contact with pad. Focuses on peak contraction.</string>
+    <string name="exercise_concentration_curls_desc">A focused bicep exercise. Sit on bench, rest elbow on inner thigh, curl dumbbell up while keeping upper arm still. Excellent for developing peak and control.</string>
+
+    <string name="exercise_tricep_pushdown_desc">An isolation exercise for triceps. Stand at cable machine, push rope or bar down until arms are fully extended. Keep elbows close to body throughout movement.</string>
+    <string name="exercise_skull_crushers_desc">A tricep isolation exercise. Lie on bench, hold weight above forehead, lower it behind head by bending elbows, then extend arms back up. Keep upper arms still.</string>
+    <string name="exercise_overhead_extension_desc">A tricep isolation movement. Hold weight behind head with both hands, extend arms overhead while keeping upper arms still. Focus on full extension.</string>
+    <string name="exercise_diamond_pushups_desc">A bodyweight tricep exercise. Perform pushup with hands close together forming diamond shape. Keep elbows close to body throughout movement.</string>
+    <string name="exercise_tricep_dips_desc">A compound tricep exercise. Support body on parallel bars, lower yourself by bending elbows, then push back up to starting position. Keep torso upright for tricep focus.</string>
+
+    <string name="exercise_squats_desc">A fundamental leg compound exercise. Stand with barbell on upper back, bend knees and hips to lower body until thighs are parallel to ground, then drive back up.</string>
+    <string name="exercise_deadlifts_desc">A full-body compound movement. Stand with barbell at shins, grip bar and lift by extending hips and knees while keeping back straight. Focus on proper form.</string>
+    <string name="exercise_leg_press_desc">A compound leg exercise. Sit in leg press machine, push weight away by extending knees and hips. Keep lower back pressed against seat throughout movement.</string>
+    <string name="exercise_lunges_desc">A unilateral leg exercise. Step forward into lunge position, lower back knee toward ground, then push back up. Maintain upright posture throughout.</string>
+    <string name="exercise_calf_raises_desc">An isolation exercise for calves. Stand on edge of platform, lower heels below platform level, then raise up onto toes. Focus on full range of motion.</string>
+
+    <string name="exercise_crunches_desc">A basic ab exercise. Lie on back, hands behind head, curl upper body up toward knees while keeping lower back pressed to ground. Focus on controlled movement.</string>
+    <string name="exercise_plank_desc">A core stability exercise. Hold push-up position with forearms on ground, maintain straight body position from head to heels. Focus on keeping core tight.</string>
+    <string name="exercise_leg_raises_desc">A lower ab exercise. Lie on back, keep legs straight, raise them up until perpendicular to ground, then lower with control. Keep lower back pressed down.</string>
+    <string name="exercise_russian_twists_desc">A rotational core exercise. Sit with knees bent and feet off ground, hold weight at chest, rotate torso side to side. Keep chest up throughout.</string>
+    <string name="exercise_mountain_climbers_desc">A dynamic core exercise. Start in plank position, alternately drive knees toward chest in running motion. Maintain plank position throughout.</string>
+
+    <!-- Add this to the existing strings -->
+    <string name="program_details">Program Details</string>
+    <string name="training_programs">training programs</string>
+    <string name="exercises">Exercises</string>
+
+    <!-- Add these to the existing strings -->
+    <string name="exercise_sets">%1$d sets</string>
+    <string name="exercise_reps">%1$s reps</string>
+    <string name="exercise_rest">Rest: %1$d sec</string>
+    <string name="exercise_details">Exercise Details</string>
+    <string name="watch_on_youtube">Watch on YouTube</string>
+    <string name="exercises_by_muscle">Exercises by Muscle</string>
+    <string name="muscle_chest">Chest</string>
+    <string name="muscle_back">Back</string>
+    <string name="muscle_shoulders">Shoulders</string>
+    <string name="muscle_biceps">Biceps</string>
+    <string name="muscle_triceps">Triceps</string>
+    <string name="muscle_legs">Legs</string>
+    <string name="muscle_abs">Abs</string>
+    <string name="muscle_none">None</string>
+
+    <!-- Diet Programs -->
+    <string name="diet_bulking">Bulking Diet</string>
+    <string name="diet_bulking_description">High-calorie diet designed to help you gain muscle mass</string>
+    <string name="diet_cutting">Cutting Diet</string>
+    <string name="diet_cutting_description">Low-calorie diet designed to help you lose fat while preserving muscle</string>
+    <string name="diet_maintenance">Maintenance Diet</string>
+    <string name="diet_maintenance_description">Balanced diet designed to maintain your current weight</string>
+
+    <!-- Meals -->
+    <string name="meal_bulking_breakfast">Protein-Packed Breakfast</string>
+    <string name="meal_bulking_breakfast_description">Start your day with this high-protein, high-calorie breakfast</string>
+    <string name="meal_bulking_lunch">Power Lunch</string>
+    <string name="meal_bulking_lunch_description">Fuel your workouts with this balanced lunch</string>
+    <string name="meal_bulking_dinner">Recovery Dinner</string>
+    <string name="meal_bulking_dinner_description">Replenish your body with this nutrient-rich dinner</string>
+
+    <string name="meal_cutting_breakfast">Lean Breakfast</string>
+    <string name="meal_cutting_breakfast_description">Start your day with this protein-rich, low-calorie breakfast</string>
+    <string name="meal_cutting_lunch">Light Lunch</string>
+    <string name="meal_cutting_lunch_description">Stay energized with this balanced, low-calorie lunch</string>
+    <string name="meal_cutting_dinner">Light Dinner</string>
+    <string name="meal_cutting_dinner_description">End your day with this protein-rich, low-calorie dinner</string>
+
+    <!-- Nutrition Categories -->
+    <string name="nutrition_protein">Protein Sources</string>
+    <string name="nutrition_protein_description">Essential for muscle growth and recovery</string>
+    <string name="nutrition_carbs">Carbohydrate Sources</string>
+    <string name="nutrition_carbs_description">Primary energy source for your workouts</string>
+    <string name="nutrition_fats">Healthy Fat Sources</string>
+    <string name="nutrition_fats_description">Important for hormone production and overall health</string>
+
+    <!-- Foods -->
+    <string name="food_chicken_breast">Chicken Breast (100g)</string>
+    <string name="food_eggs">Eggs (1 large)</string>
+    <string name="food_greek_yogurt">Greek Yogurt (100g)</string>
+    <string name="food_salmon">Salmon (100g)</string>
+    <string name="food_whey_protein">Whey Protein (1 scoop)</string>
+
+    <string name="food_brown_rice">Brown Rice (1 cup cooked)</string>
+    <string name="food_sweet_potato">Sweet Potato (1 medium)</string>
+    <string name="food_oatmeal">Oatmeal (1/2 cup dry)</string>
+    <string name="food_quinoa">Quinoa (1 cup cooked)</string>
+    <string name="food_banana">Banana (1 medium)</string>
+
+    <string name="food_avocado">Avocado (1 medium)</string>
+    <string name="food_olive_oil">Olive Oil (1 tbsp)</string>
+    <string name="food_almonds">Almonds (1 oz, ~23 nuts)</string>
+    <string name="food_peanut_butter">Peanut Butter (2 tbsp)</string>
+    <string name="food_cheese">Cheddar Cheese (1 oz)</string>
+
+    <!-- Diet UI -->
+    <string name="diet_programs">Diet Programs</string>
+    <string name="nutrition_guide">Nutrition Guide</string>
+    <string name="calories">Calories: %1$d</string>
+    <string name="protein">Protein: %1$dg</string>
+    <string name="carbs">Carbs: %1$dg</string>
+    <string name="fat">Fat: %1$dg</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
+    <string name="view_details">View Details</string>
+</resources>
