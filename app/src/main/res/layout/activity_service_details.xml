@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/serviceDetailsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 🏷 Title -->
+    <TextView
+        android:id="@+id/serviceTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service Title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:paddingBottom="8dp" />
+
+    <!-- 📝 Description -->
+    <TextView
+        android:id="@+id/serviceDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the service description..."
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:paddingBottom="12dp" />
+
+    <!-- 🖼 Horizontal Image Gallery -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/imagesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
+
+    <!-- 📦 Offers Tab Bar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:id="@+id/offersTabBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+    </HorizontalScrollView>
+
+    <!-- 📄 Offer Details Fragment -->
+    <FrameLayout
+        android:id="@+id/offerDetailsFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="24dp"
+        android:elevation="2dp"
+        android:padding="16dp" />
+
+
+    <!-- ✅ Book Button -->
+    <Button
+        android:id="@+id/bookButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Book Now"
+        android:textAllCaps="false"
+        android:backgroundTint="#1976D2"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp" />
+</LinearLayout>
