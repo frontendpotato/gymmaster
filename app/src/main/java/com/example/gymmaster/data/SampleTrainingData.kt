@@ -605,12 +605,12 @@ object SampleTrainingData {
 
     fun getMuscleImageResource(muscles: List<Muscle>): Int {
         return when {
-            muscles.containsAll(listOf(Muscle.CHEST, Muscle.TRICEPS)) -> R.drawable.ic_training
-            muscles.containsAll(listOf(Muscle.BACK, Muscle.BICEPS)) -> R.drawable.ic_settings
-            muscles.containsAll(listOf(Muscle.LEGS)) -> R.drawable.ic_training
-            muscles.containsAll(listOf(Muscle.SHOULDERS)) -> R.drawable.ic_training
-            muscles.containsAll(listOf(Muscle.ABS)) -> R.drawable.ic_training
-            else -> R.drawable.ic_training
+            muscles.containsAll(listOf(Muscle.CHEST, Muscle.TRICEPS)) -> R.drawable.chestandtricepc__2_
+            muscles.containsAll(listOf(Muscle.BACK, Muscle.BICEPS)) -> R.drawable.biceps
+            muscles.containsAll(listOf(Muscle.LEGS)) -> R.drawable.legs
+            muscles.containsAll(listOf(Muscle.SHOULDERS)) -> R.drawable.chest
+            muscles.containsAll(listOf(Muscle.ABS)) -> R.drawable.abs
+            else -> R.drawable.chest
         }
     }
 } 

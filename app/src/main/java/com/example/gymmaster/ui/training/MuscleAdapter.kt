@@ -32,7 +32,7 @@ class MuscleAdapter(
         private val muscleName: TextView = itemView.findViewById(R.id.muscleName)
 
         fun bind(muscle: Muscle) {
-//            muscleImage.setImageResource(getMuscleImage(muscle))
+            muscleImage.setImageResource(getMuscleImage(muscle))
 
                 Glide.with(itemView.context)
                     .load(getMuscleImage(muscle))
@@ -49,14 +49,14 @@ class MuscleAdapter(
 
         private fun getMuscleImage(muscle: Muscle): Int {
             return when (muscle) {
-                Muscle.CHEST -> R.drawable.ic_diet
-                Muscle.BACK -> R.drawable.ic_training
-                Muscle.SHOULDERS -> R.drawable.ic_diet
-                Muscle.BICEPS -> R.drawable.ic_settings
-                Muscle.TRICEPS -> R.drawable.ic_settings
-                Muscle.LEGS -> R.drawable.ic_training
-                Muscle.ABS -> R.drawable.ic_diet
-                Muscle.NONE -> R.drawable.ic_training
+                Muscle.CHEST -> R.drawable.chest
+                Muscle.BACK -> R.drawable.back
+                Muscle.SHOULDERS -> R.drawable.chestandtricepc__2_
+                Muscle.BICEPS -> R.drawable.biceps
+                Muscle.TRICEPS -> R.drawable.tricepsandarms
+                Muscle.LEGS -> R.drawable.legs
+                Muscle.ABS -> R.drawable.abs
+                Muscle.NONE -> R.drawable.arms
             }
         }
 
