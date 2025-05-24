@@ -1,5 +1,6 @@
 package com.example.gymmaster.ui.diet
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,14 +39,10 @@ class DietFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         
         val adapter = DietProgramAdapter(dietPrograms) { dietProgram ->
-            // Handle diet program click
-            Toast.makeText(
-                requireContext(),
-                getString(dietProgram.nameResId),
-                Toast.LENGTH_SHORT
-            ).show()
-            
-            // TODO: Navigate to diet program details
+            // Navigate to diet program details
+            val intent = Intent(requireContext(), DietDetailsActivity::class.java)
+            intent.putExtra("diet_program", dietProgram)
+            startActivity(intent)
         }
         
         recyclerView.adapter = adapter

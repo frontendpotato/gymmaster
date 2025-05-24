@@ -4,15 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import java.io.Serializable
 
-data class DietProgram(
-    val id: String,
-    @StringRes val nameResId: Int,
-    @StringRes val descriptionResId: Int,
-    @DrawableRes val imageResId: Int,
-    val meals: List<Meal>
-) : Serializable
-
-/*
 data class Meal(
     val id: String,
     @StringRes val nameResId: Int,
@@ -24,4 +15,4 @@ data class Meal(
     val fat: Int,
     val ingredients: List<String>,
     val instructions: List<String>
-) */
+) : Serializable 

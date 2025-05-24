@@ -60,4 +60,10 @@
     <string name="exercise_dumbbell_flyes_desc">Un exercice d\'isolation pour la poitrine. Allongez-vous sur un banc plat avec des haltères, commencez avec les bras tendus au-dessus de la poitrine, puis abaissez-les sur les côtés dans un mouvement en arc tout en maintenant une légère flexion des coudes.</string>
     <string name="exercise_pushups_desc">Un exercice composé au poids du corps ciblant la poitrine, les épaules et les triceps. Commencez en position de planche, abaissez votre corps jusqu\'à ce que votre poitrine touche presque le sol tout en gardant votre corps droit, puis poussez vers le haut.</string>
     <string name="exercise_cable_crossover_desc">Un exercice d\'isolation pour la définition de la poitrine. Tenez-vous entre les machines à câbles, tirez les câbles vers l\'avant et vers le bas dans un mouvement en arc, en vous concentrant sur la contraction de la poitrine au point de contraction maximale.</string>
+
+    <string name="price_label">Prix:</string>
+    <string name="duration_label">Durée:</string>
+    <string name="persons_label">Personnes:</string>
+    <string name="available_offers">Offres Disponibles</string>
+    <string name="book_now">Réserver Maintenant</string>
 </resources> 

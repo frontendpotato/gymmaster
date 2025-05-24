@@ -54,4 +54,10 @@
     <string name="exercise_dumbbell_flyes_desc">تمرين عزل لعضلات الصدر. استلق على مقعد مستوٍ مع الدمبل، ابدأ بالذراعين ممدودتين فوق الصدر، ثم اخفضهما إلى الجانبين في حركة قوسية مع الحفاظ على انحناء خفيف في المرفقين.</string>
     <string name="exercise_pushups_desc">تمرين مركب باستخدام وزن الجسم يستهدف الصدر والكتفين والترايسبس. ابدأ في وضعية البلانك، اخفض جسمك حتى يكاد صدرك يلمس الأرض مع الحفاظ على استقامة جسمك، ثم ادفع للأعلى.</string>
     <string name="exercise_cable_crossover_desc">تمرين عزل لتحديد عضلات الصدر. قف بين أجهزة الكيبل، اسحب الكيبلات للأمام وللأسفل في حركة قوسية، مع التركيز على ضغط عضلات الصدر في نقطة الانقباض القصوى.</string>
+
+    <string name="price_label">السعر:</string>
+    <string name="duration_label">المدة:</string>
+    <string name="persons_label">الأشخاص:</string>
+    <string name="available_offers">العروض المتاحة</string>
+    <string name="book_now">احجز الآن</string>
 </resources> 

@@ -35,7 +35,7 @@ class ServiceAdapter(
 
     override fun onBindViewHolder(holder: ServiceViewHolder, position: Int) {
         val service = serviceList[position]
-        holder.serviceTitle.text = service.name
+        holder.serviceTitle.text = service.title
 
         Glide.with(holder.itemView.context)
             .load(service.images.firstOrNull())

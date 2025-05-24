@@ -9,6 +9,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.TextView
+import android.widget.ToggleButton
 import com.google.firebase.auth.UserProfileChangeRequest
 
 /*class SignUpActivity : AppCompatActivity() {
@@ -86,14 +87,15 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var nameInput: TextInputEditText
     private lateinit var emailInput: TextInputEditText
     private lateinit var passwordInput: TextInputEditText
-    private lateinit var phoneInput: TextInputEditText  // Add phone input field
+    private lateinit var phoneInput: TextInputEditText
+    private lateinit var genderToggleButton: ToggleButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
         auth = FirebaseAuth.getInstance()
-
+        genderToggleButton = findViewById(R.id.genderToggleButton)
         nameInput = findViewById(R.id.etName)
         emailInput = findViewById(R.id.etEmail)
         passwordInput = findViewById(R.id.etPassword)
@@ -113,12 +115,15 @@ class SignUpActivity : AppCompatActivity() {
         val name = nameInput.text.toString()
         val email = emailInput.text.toString()
         val password = passwordInput.text.toString()
-        val phone = phoneInput.text.toString()  // Get phone number
+        val phone = phoneInput.text.toString()
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || phone.isEmpty()) {
             Toast.makeText(this, getString(R.string.fill_fields), Toast.LENGTH_SHORT).show()
             return
         }
+
+        // Get gender value: true = male, false = female
+        val isMale = genderToggleButton.isChecked
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -131,12 +136,13 @@ class SignUpActivity : AppCompatActivity() {
                     user?.updateProfile(profileUpdates)
                         ?.addOnCompleteListener { profileTask ->
                             if (profileTask.isSuccessful) {
-                                // After user is created, store details in Firestore
+                                // Create user data map with gender
                                 val userMap = hashMapOf(
                                     "uid" to user.uid,
                                     "name" to name,
                                     "email" to email,
-                                    "phone" to phone
+                                    "phone" to phone,
+                                    "gender" to if (isMale) "male" else "female"
                                 )
 
                                 FirebaseFirestore.getInstance()
@@ -144,15 +150,14 @@ class SignUpActivity : AppCompatActivity() {
                                     .document(user.uid)
                                     .set(userMap)
                                     .addOnSuccessListener {
-                                        // Go to MainActivity after saving data to Firestore
+                                        // Go to MainActivity after saving user info
                                         startActivity(Intent(this, MainActivity::class.java))
                                         finish()
                                     }
-                                    .addOnFailureListener {
-                                        Log.e("SignUpActivity", "Firestore Error", it)
-                                        Toast.makeText(this, "Failed to store user data: ${it.message}", Toast.LENGTH_LONG).show()
+                                    .addOnFailureListener { e ->
+                                        Log.e("SignUpActivity", "Firestore Error", e)
+                                        Toast.makeText(this, "Failed to store user data: ${e.message}", Toast.LENGTH_LONG).show()
                                     }
-
 
                             } else {
                                 Toast.makeText(this,
@@ -167,4 +172,5 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
+
 }

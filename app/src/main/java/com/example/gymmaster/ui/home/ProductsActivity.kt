@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymmaster.R
-import com.example.gymmaster.ui.home.Product
-import com.example.gymmaster.ui.home.ProductDetailActivity
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 

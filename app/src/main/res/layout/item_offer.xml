@@ -1,82 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="6dp"
-    android:padding="16dp">
+    android:layout_margin="8dp"
+    android:padding="2dp">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="#FFF3E0">
 
-        <!-- Offer Title -->
-        <TextView
-            android:id="@+id/offerTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Basic Plan"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:paddingBottom="4dp" />
-
-        <!-- Offer Description -->
-        <TextView
-            android:id="@+id/offerDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Short description of the offer"
-            android:textSize="14sp"
-            android:textColor="#555555"
-            android:paddingBottom="12dp" />
-
-        <!-- Features List -->
         <LinearLayout
-            android:id="@+id/offerFeaturesContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <!-- Price and Duration (optional, if needed visually) -->
-        <TextView
-            android:id="@+id/offerPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="£25 • 3 days"
-            android:textSize="14sp"
-            android:textColor="#1976D2"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp" />
-        <TextView
-            android:id="@+id/offerDuration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="£25 • 3 days"
-            android:textSize="14sp"
-            android:textColor="#1976D2"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp" />
-        <TextView
-            android:id="@+id/offerPersons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="£25 • 3 days"
-            android:textSize="14sp"
-            android:textColor="#1976D2"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp" />
-        <TextView
-            android:id="@+id/offerDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="£25 • 3 days"
-            android:textSize="14sp"
-            android:textColor="#1976D2"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/offerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price_label"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/offerPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DA"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duration_label"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/offerDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/persons_label"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/offerPersons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

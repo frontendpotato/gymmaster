@@ -1,5 +1,6 @@
 package com.example.gymmaster.ui.home
 
+import android.app.DatePickerDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -9,34 +10,31 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gymmaster.R
 import com.google.firebase.firestore.FirebaseFirestore
-import com.example.gymmaster.ui.home.Service
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ServiceDetailsActivity : AppCompatActivity() {
 
     private lateinit var service: Service
-
     private lateinit var serviceTitle: TextView
     private lateinit var serviceDescription: TextView
-    private lateinit var serviceImagesRecyclerView: RecyclerView
-    private lateinit var serviceImagesAdapter: ServiceImagesAdapter
-
-
-    private lateinit var offerTitlesAdapter: OfferTitlesAdapter
-
-    private lateinit var offerDetailsFragmentContainer: FrameLayout
+    private lateinit var serviceImage: ImageView
+    private lateinit var offersRecyclerView: RecyclerView
+    private lateinit var offersAdapter: OffersAdapter
     private lateinit var bookButton: Button
+    private lateinit var selectedDate: Calendar
 
     private val db = FirebaseFirestore.getInstance()
     private val offers = mutableListOf<Offer>()
+    private var selectedOffer: Offer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,117 +43,201 @@ class ServiceDetailsActivity : AppCompatActivity() {
         // Get the service passed from HomeFragment
         service = intent.getSerializableExtra("service") as Service
 
-        // Bind views
+        // Initialize views
         serviceTitle = findViewById(R.id.serviceTitle)
         serviceDescription = findViewById(R.id.serviceDescription)
-        serviceImagesRecyclerView = findViewById(R.id.imagesRecyclerView)
-
-        offerDetailsFragmentContainer = findViewById(R.id.offerDetailsFragmentContainer)
+        serviceImage = findViewById(R.id.serviceImage)
+        offersRecyclerView = findViewById(R.id.offersRecyclerView)
         bookButton = findViewById(R.id.bookButton)
 
         // Set service content
-        serviceTitle.text = service.name
+        serviceTitle.text = service.title
         serviceDescription.text = service.description
+        Glide.with(this)
+            .load(service.images.firstOrNull())
+            .into(serviceImage)
 
-        // Set up service images RecyclerView
-        serviceImagesAdapter = ServiceImagesAdapter(service.images)
-        serviceImagesRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        serviceImagesRecyclerView.adapter = serviceImagesAdapter
+        // Setup offers RecyclerView
+        setupOffersRecyclerView()
 
-        // Load offers for the selected service
-        fetchOffers()
+        // Load offers
+        loadOffers()
+
+        // Setup book button
+        bookButton.setOnClickListener {
+            if (selectedOffer != null) {
+                showDatePicker()
+            } else {
+                Toast.makeText(this, "Please select an offer first", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
-    private fun fetchOffers() {
-        db.collection("services").document(service.id)
+    private fun setupOffersRecyclerView() {
+        offersAdapter = OffersAdapter(offers) { offer ->
+            selectedOffer = offer
+            offersAdapter.setSelectedOffer(offer)
+        }
+
+        offersRecyclerView.layoutManager = LinearLayoutManager(
+            this,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        offersRecyclerView.adapter = offersAdapter
+    }
+
+    private fun loadOffers() {
+        db.collection("Gym")
+            .document("gym1")
+            .collection("services")
+            .document(service.id)
             .collection("offers")
             .get()
             .addOnSuccessListener { snapshot ->
-                Log.d("ServiceDetails", "Raw snapshot size: ${snapshot.size()}")
-                for (doc in snapshot.documents) {
-                    Log.d("ServiceDetails", "Doc: ${doc.id} → ${doc.data}")
-                }
-                Log.d("ServiceDetails", "Offers found: ${snapshot.size()}")
                 offers.clear()
-                for (doc in snapshot.documents) {
-                    val offer = doc.toObject(Offer::class.java)
-                    if (offer != null) {
-                        offer.id = doc.id
+                for (doc in snapshot) {
+                    val offer = doc.toObject(Offer::class.java).copy(
+                        id = doc.id,
+                        details = doc.getString("details") ?: "",
+                        persons = doc.getLong("persons")?.toInt() ?: 1
+                    )
                         offers.add(offer)
                     }
+                offersAdapter.notifyDataSetChanged()
+            }
+    }
+
+    private fun showDatePicker() {
+        // Show date picker dialog
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                selectedDate = Calendar.getInstance().apply {
+                    set(year, month, day)
+                }
+                checkDateAvailability()
+            },
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH),
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.show()
+    }
+
+    private fun checkDateAvailability() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
+        
+        // First check if the user already has a booking for this date
+        db.collection("Gym")
+            .document("gym1")
+            .collection("services")
+            .document(service.id)
+            .collection("bookings")
+            .whereEqualTo("userId", uid)
+            .get()
+            .addOnSuccessListener { userBookings ->
+                // Check if user has any booking for this date
+                val hasBooking = userBookings.documents.any { doc ->
+                    val bookingDate = doc.get("requestedDate") as? Long
+                    bookingDate?.let { isSameDay(Date(it), selectedDate.time) } ?: false
                 }
 
-                Log.d("ServiceDetails", "Offers added: ${offers.size}")
+                if (hasBooking) {
+                    Toast.makeText(this, "You already have a booking for this date", Toast.LENGTH_LONG).show()
+                    return@addOnSuccessListener
+                }
 
-                setupOfferTabs()
+                // First get the service capacity
+                db.collection("Gym")
+                    .document("gym1")
+                    .collection("services")
+                    .document(service.id)
+                    .get()
+                    .addOnSuccessListener { serviceDoc ->
+                        val serviceCapacity = serviceDoc.getLong("capacity")?.toInt() ?: 0
+                        Log.d("BookingDebug", "Service capacity: $serviceCapacity")
 
-                if (offers.isNotEmpty()) {
-                    Log.d("ServiceDetails", "Calling loadOfferFragment with: ${offers.first().title}")
-                    loadOfferFragment(offers.first())
-                } else {
-                    Log.d("ServiceDetails", "No offers found for service: ${service.id}")
+                        // Then check the total bookings for this service on this date
+                        db.collection("Gym")
+                            .document("gym1")
+                            .collection("services")
+                            .document(service.id)
+                            .collection("bookings")
+                            .get()
+                            .addOnSuccessListener { bookingsSnapshot ->
+                                // Count bookings for the selected date
+                                val totalBookings = bookingsSnapshot.documents.count { doc ->
+                                    val bookingDate = doc.get("requestedDate") as? Long
+                                    bookingDate?.let { isSameDay(Date(it), selectedDate.time) } ?: false
+                                }
+                                
+                                Log.d("BookingDebug", "Total bookings for date ${selectedDate.time}: $totalBookings")
+
+                                if (totalBookings < serviceCapacity) {
+                                    // There's still capacity, create the booking
+                                    createBooking()
+                                } else {
+                                    // Capacity reached
+                                    Toast.makeText(
+                                        this,
+                                        "Sorry, this service has reached its daily capacity of $serviceCapacity bookings for the selected date",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
+                            .addOnFailureListener {
+                                Log.e("BookingDebug", "Error checking bookings", it)
+                                Toast.makeText(
+                                    this,
+                                    "Error checking availability. Please try again.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                 }
             }
             .addOnFailureListener {
-                Log.e("ServiceDetails", "Error fetching offers: ${it.message}", it)
+                        Log.e("BookingDebug", "Error getting service capacity", it)
+                        Toast.makeText(
+                            this,
+                            "Error retrieving service capacity. Please try again.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
             }
     }
 
+    private fun createBooking() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
-    private fun setupOfferTabs() {
-        val tabBar = findViewById<LinearLayout>(R.id.offersTabBar)
-        tabBar.removeAllViews() // Clear any existing tabs
+        val booking = hashMapOf(
+            "createdAt" to Calendar.getInstance().time,
+            "offerId" to selectedOffer?.id,
+            "requestedDate" to selectedDate.timeInMillis,  // Store as Long timestamp
+            "status" to "pending",
+            "userId" to uid
+        )
 
-        for ((index, offer) in offers.withIndex()) {
-            val tab = TextView(this).apply {
-                text = offer.title
-                setPadding(32, 16, 32, 16)
-                setTextColor(Color.BLACK)
-                textSize = 16f
- //               setBackgroundResource(R.drawable.offer_tab_background) // optional styling
-                isClickable = true
-                isFocusable = true
-
-                setOnClickListener {
-                    loadOfferFragment(offer)
-                    highlightSelectedTab(this, tabBar)
-                }
+        db.collection("Gym")
+            .document("gym1")
+            .collection("services")
+            .document(service.id)
+            .collection("bookings")
+            .add(booking)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Booking created successfully!", Toast.LENGTH_SHORT).show()
+                finish()
             }
-
-            tabBar.addView(tab)
-
-            // Automatically select the first offer
-            if (index == 0) {
-                tab.performClick()
+            .addOnFailureListener {
+                Log.e("BookingDebug", "Error creating booking", it)
+                Toast.makeText(this, "Failed to create booking. Please try again.", Toast.LENGTH_SHORT).show()
             }
-        }
     }
 
-    private fun highlightSelectedTab(selectedTab: TextView, tabBar: LinearLayout) {
-        for (i in 0 until tabBar.childCount) {
-            val tab = tabBar.getChildAt(i) as TextView
-            tab.setTextColor(Color.GRAY)
-            tab.setBackgroundResource(android.R.color.transparent)
-        }
-        selectedTab.setTextColor(Color.BLACK)
+    private fun isSameDay(date1: Date, date2: Date): Boolean {
+        val cal1 = Calendar.getInstance().apply { time = date1 }
+        val cal2 = Calendar.getInstance().apply { time = date2 }
+        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)
     }
-
-
-/*    private fun loadOfferFragment(offer: Offer) {
-        val fragment = OfferDetailsFragment.newInstance(offer)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.offerDetailsFragmentContainer, fragment)
-            .commit()
-    }*/
-private fun loadOfferFragment(offer: Offer) {
-    Log.d("ServiceDetails", "Loading offer fragment: ${offer.title}")
-    Toast.makeText(this, "Loading ${offer.title}", Toast.LENGTH_SHORT).show()
-    val fragment = OfferDetailsFragment.newInstance(offer)
-    supportFragmentManager.beginTransaction()
-        .replace(R.id.offerDetailsFragmentContainer, fragment)
-        .commit()
-}
-
 }
 

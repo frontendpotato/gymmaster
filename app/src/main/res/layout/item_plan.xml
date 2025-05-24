@@ -22,7 +22,7 @@
             android:text="Title"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/planPrice"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/planDuration"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="Duration"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/black"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

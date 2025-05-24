@@ -48,6 +48,12 @@
         <activity
             android:name=".ui.training.ExerciseDetailsActivity"
             android:label="@string/exercise_details" />
+        <activity
+            android:name=".ui.home.AllServicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.diet.DietDetailsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

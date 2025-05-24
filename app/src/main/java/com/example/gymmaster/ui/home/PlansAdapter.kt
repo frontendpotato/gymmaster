@@ -31,10 +31,17 @@ class PlansAdapter(private val plans: List<Plan>) :
         holder.duration.text = "Duration: ${plan.durationDays} days"
 
         when (plan.tier.lowercase(Locale.getDefault())) {
-            "gold" -> holder.background.setBackgroundResource(R.drawable.bg_gold)
-            "silver" -> holder.background.setBackgroundResource(R.drawable.bg_silver)
-            //"bronze" -> holder.background.setBackgroundResource(R.drawable.bg_bronze)
+            "gold" -> holder.background.setBackgroundResource(R.drawable.gold)
+            "silver" -> holder.background.setBackgroundResource(R.drawable.silver)
+            "bronze" -> holder.background.setBackgroundResource(R.drawable.bronze)
+            "platinum" -> holder.background.setBackgroundResource(R.drawable.platinum)
+            "diamond" -> holder.background.setBackgroundResource(R.drawable.diamond)
+            "emerald" -> holder.background.setBackgroundResource(R.drawable.emerald)
+            "sapphire" -> holder.background.setBackgroundResource(R.drawable.saphire)
+            "titanuim" -> holder.background.setBackgroundResource(R.drawable.platinum)
+
             else -> holder.background.setBackgroundResource(R.drawable.bg_black)
+
         }
     }
 

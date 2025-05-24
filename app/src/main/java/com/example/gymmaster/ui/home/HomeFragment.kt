@@ -1,6 +1,5 @@
 package com.example.gymmaster.ui.home
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
+import android.widget.ImageView
+
 class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
@@ -25,26 +26,18 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: ProductAdapter
     private val db = FirebaseFirestore.getInstance()
 
+    private lateinit var planCard: View
     private lateinit var planTitle: TextView
     private lateinit var planDaysLeft: TextView
     private lateinit var planExpiryDate: TextView
     private lateinit var btnShowPlans: Button
-    private val auth = FirebaseAuth.getInstance()
-
+    private lateinit var planBackground: ImageView
 
     //services vars
     private lateinit var servicesRecyclerView: RecyclerView
     private lateinit var serviceAdapter: ServiceAdapter
     private lateinit var seeMoreServicesBtn: Button
     private val serviceList = mutableListOf<Service>()
-
-
-
-
-
-    private lateinit var planCard: View
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,6 +59,7 @@ class HomeFragment : Fragment() {
         planDaysLeft = view.findViewById(R.id.planDaysLeft)
         planExpiryDate = view.findViewById(R.id.planExpiryDate)
         btnShowPlans = view.findViewById(R.id.btnShowPlans)
+        planBackground = view.findViewById(R.id.planBackground)
 
         btnShowPlans.setOnClickListener {
             startActivity(Intent(requireContext(), AllPlansActivity::class.java))
@@ -73,13 +67,13 @@ class HomeFragment : Fragment() {
 
         val showMore = view.findViewById<TextView>(R.id.showMore)
         showMore.setOnClickListener {
-            startActivity(Intent(requireContext(), ProductsActivity::class.java))
+            startActivity(Intent(requireContext(), AllServicesActivity::class.java))
         }
 
         fetchActivePlan()
         loadLatestProducts()
 
-// Reference RecyclerView
+        // Reference RecyclerView
         servicesRecyclerView = view.findViewById(R.id.servicesRecyclerView)
 
         // Setup adapter and RecyclerView
@@ -90,7 +84,6 @@ class HomeFragment : Fragment() {
 
         return view
     }
-
 
     private fun loadLatestProducts() {
         db.collection("Gym").document("gym1").collection("Products")
@@ -108,12 +101,8 @@ class HomeFragment : Fragment() {
                 adapter.notifyDataSetChanged()
             }
     }
+
     private fun setupServicesRecyclerView() {
- /*       serviceAdapter = ServiceAdapter(serviceList) { selectedService ->
-            val intent = Intent(requireContext(), ServiceDetailsActivity::class.java)
-            intent.putExtra("serviceId", selectedService.id)
-            startActivity(intent)
-        }*/
         serviceAdapter = ServiceAdapter(serviceList) { selectedService ->
             val intent = Intent(requireContext(), ServiceDetailsActivity::class.java)
             intent.putExtra("service", selectedService)
@@ -127,7 +116,6 @@ class HomeFragment : Fragment() {
         )
         servicesRecyclerView.adapter = serviceAdapter
     }
-
 
     private fun fetchServicesPreview() {
         db.collection("Gym")
@@ -150,25 +138,46 @@ class HomeFragment : Fragment() {
 
         db.collection("users")
             .document(uid)
-            .collection("activePlan")
-            .limit(1)
             .get()
-            .addOnSuccessListener { snapshot ->
-                if (!snapshot.isEmpty) {
-                    val doc = snapshot.documents[0]
-                    val title = doc.getString("title") ?: "no-title"
-                    val tier = doc.getString("tier") ?: "no-tier"
-                    val endDate = doc.getDate("endDate")
-                    val startDate = doc.getDate("startDate")
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val activePlanDetails = document.get("activePlanDetails") as? Map<*, *>
 
-                    if (endDate != null && startDate != null) {
-                        val today = Calendar.getInstance().time
-                        val remaining = ((endDate.time - today.time) / (1000 * 60 * 60 * 24)).toInt()
+                    if (activePlanDetails != null) {
+                        val title = activePlanDetails["title"] as? String ?: "no-title"
+                        val tier = (activePlanDetails["tier"] as? String ?: "no-tier").lowercase(Locale.getDefault())
+                        val endDateTimestamp = activePlanDetails["endDate"] as? com.google.firebase.Timestamp
+                        val startDateTimestamp = activePlanDetails["startDate"] as? com.google.firebase.Timestamp
 
-                        planTitle.text = "Your Plan: $title"
-                        planDaysLeft.text = "$remaining Days Left"
-                        planExpiryDate.text = "Ends: ${SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(endDate)}"
-                        planCard.visibility = View.VISIBLE
+                        // Set background based on tier on planBackground
+                        when (tier) {
+                            "gold" -> planBackground.setImageResource(R.drawable.gold)
+                            "silver" -> planBackground.setImageResource(R.drawable.silver)
+                            "bronze" -> planBackground.setImageResource(R.drawable.bronze)
+                            "platinum" -> planBackground.setImageResource(R.drawable.platinum)
+                            "diamond" -> planBackground.setImageResource(R.drawable.diamond)
+                            "emerald" -> planBackground.setImageResource(R.drawable.emerald)
+                            "sapphire" -> planBackground.setImageResource(R.drawable.saphire)
+                            "titanuim" -> planBackground.setImageResource(R.drawable.platinum)
+                            else -> planBackground.setImageResource(R.drawable.bg_silver)
+                        }
+
+                        if (endDateTimestamp != null && startDateTimestamp != null) {
+                            val endDate = endDateTimestamp.toDate()
+                            val today = Calendar.getInstance().time
+                            val remainingDays = ((endDate.time - today.time) / (1000 * 60 * 60 * 24)).toInt()
+
+                            planTitle.text = "Your Plan: $title"
+                            planDaysLeft.text = "$remainingDays Days Left"
+                            planExpiryDate.text = "Ends: ${SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(endDate)}"
+
+                            planCard.visibility = View.VISIBLE
+                        } else {
+                            planCard.visibility = View.GONE
+                        }
+
+                    } else {
+                        planCard.visibility = View.GONE
                     }
                 } else {
                     planCard.visibility = View.GONE
@@ -178,12 +187,6 @@ class HomeFragment : Fragment() {
                 planCard.visibility = View.GONE
             }
     }
-
-
-
-
-
-
 }
 
 
