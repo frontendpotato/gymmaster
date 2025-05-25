@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymmaster.R
-import com.example.gymmaster.data.models.MealIngredient
+import com.example.gymmaster.data.Ingredient
 
-class IngredientsAdapter(private val ingredients: List<MealIngredient>) : 
+class IngredientsAdapter(private val ingredients: List<Ingredient>) : 
     RecyclerView.Adapter<IngredientsAdapter.IngredientViewHolder>() {
 
     class IngredientViewHolder(view: View) : RecyclerView.ViewHolder(view) {

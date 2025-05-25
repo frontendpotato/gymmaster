@@ -230,4 +230,6 @@
     <string name="protein_format">%.1fg protein</string>
     <string name="carbs_format">%.1fg carbs</string>
     <string name="fat_format">%.1fg fat</string>
+
+    <string name="ingredients_count">%d ingredients</string>
 </resources>

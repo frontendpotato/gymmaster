@@ -104,4 +104,6 @@
     <string name="day_5">اليوم 5</string>
     <string name="day_6">اليوم 6</string>
     <string name="day_7">اليوم 7</string>
+
+    <string name="ingredients_count">%d مكونات</string>
 </resources> 

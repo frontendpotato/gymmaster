@@ -1,12 +1,22 @@
 package com.example.gymmaster.data
 
 import com.example.gymmaster.R
-import com.example.gymmaster.data.models.MealIngredient
+import com.example.gymmaster.data.models.NutritionCategory
+
+data class Ingredient(
+    val nameResId: Int,
+    val quantity: Int,
+    val unit: String,
+    val calories: Int,
+    val protein: Double,
+    val carbs: Double,
+    val fat: Double
+)
 
 object NutritionData {
     // Protein Sources
     val proteinSources = listOf(
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_chicken_breast,
             quantity = 100,
             unit = "g",
@@ -15,7 +25,7 @@ object NutritionData {
             carbs = 0.0,
             fat = 3.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_eggs,
             quantity = 1,
             unit = "piece",
@@ -24,7 +34,7 @@ object NutritionData {
             carbs = 1.0,
             fat = 11.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_greek_yogurt,
             quantity = 100,
             unit = "g",
@@ -33,7 +43,7 @@ object NutritionData {
             carbs = 3.0,
             fat = 0.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_salmon,
             quantity = 100,
             unit = "g",
@@ -42,7 +52,7 @@ object NutritionData {
             carbs = 0.0,
             fat = 13.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_whey_protein,
             quantity = 30,
             unit = "g",
@@ -55,7 +65,7 @@ object NutritionData {
 
     // Carb Sources
     val carbSources = listOf(
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_brown_rice,
             quantity = 100,
             unit = "g",
@@ -64,7 +74,7 @@ object NutritionData {
             carbs = 23.0,
             fat = 1.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_sweet_potato,
             quantity = 100,
             unit = "g",
@@ -73,7 +83,7 @@ object NutritionData {
             carbs = 20.0,
             fat = 0.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_oatmeal,
             quantity = 100,
             unit = "g",
@@ -82,7 +92,7 @@ object NutritionData {
             carbs = 66.0,
             fat = 7.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_quinoa,
             quantity = 100,
             unit = "g",
@@ -91,7 +101,7 @@ object NutritionData {
             carbs = 21.0,
             fat = 2.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_banana,
             quantity = 1,
             unit = "piece",
@@ -104,7 +114,7 @@ object NutritionData {
 
     // Fat Sources
     val fatSources = listOf(
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_avocado,
             quantity = 100,
             unit = "g",
@@ -113,7 +123,7 @@ object NutritionData {
             carbs = 8.0,
             fat = 15.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_olive_oil,
             quantity = 15,
             unit = "ml",
@@ -122,7 +132,7 @@ object NutritionData {
             carbs = 0.0,
             fat = 14.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_almonds,
             quantity = 100,
             unit = "g",
@@ -131,7 +141,7 @@ object NutritionData {
             carbs = 22.0,
             fat = 50.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_peanut_butter,
             quantity = 32,
             unit = "g",
@@ -140,7 +150,7 @@ object NutritionData {
             carbs = 7.0,
             fat = 16.0
         ),
-        MealIngredient(
+        Ingredient(
             nameResId = R.string.food_cheese,
             quantity = 100,
             unit = "g",
@@ -148,6 +158,28 @@ object NutritionData {
             protein = 25.0,
             carbs = 1.0,
             fat = 33.0
+        )
+    )
+
+    // Nutrition Categories
+    val nutritionCategories = listOf(
+        NutritionCategory(
+            id = "protein",
+            nameResId = R.string.nutrition_protein,
+            descriptionResId = R.string.nutrition_protein_description,
+            ingredients = proteinSources
+        ),
+        NutritionCategory(
+            id = "carbs",
+            nameResId = R.string.nutrition_carbs,
+            descriptionResId = R.string.nutrition_carbs_description,
+            ingredients = carbSources
+        ),
+        NutritionCategory(
+            id = "fats",
+            nameResId = R.string.nutrition_fats,
+            descriptionResId = R.string.nutrition_fats_description,
+            ingredients = fatSources
         )
     )
 } 
