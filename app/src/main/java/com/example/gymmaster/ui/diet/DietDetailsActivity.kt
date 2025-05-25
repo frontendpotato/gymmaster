@@ -1,3 +1,4 @@
+/*
 package com.example.gymmaster.ui.diet
 
 import android.os.Bundle
@@ -8,12 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymmaster.R
 import com.example.gymmaster.data.models.DietProgram
+import com.example.gymmaster.data.models.Day
 import com.example.gymmaster.data.models.Meal
 
 class DietDetailsActivity : AppCompatActivity() {
 
     private lateinit var dietProgram: DietProgram
-    private lateinit var mealsAdapter: MealsAdapter
+    private lateinit var daysAdapter: DaysAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,17 +32,20 @@ class DietDetailsActivity : AppCompatActivity() {
         // Set title
         findViewById<TextView>(R.id.titleTextView).text = getString(dietProgram.nameResId)
 
-        // Setup meals RecyclerView
-        val mealsRecyclerView = findViewById<RecyclerView>(R.id.mealsRecyclerView)
-        mealsRecyclerView.layoutManager = LinearLayoutManager(this)
+        // Setup days RecyclerView
+        val daysRecyclerView = findViewById<RecyclerView>(R.id.mealsRecyclerView)
+        daysRecyclerView.layoutManager = LinearLayoutManager(this)
         
-        // Group meals by day (for now, we'll just show all meals in sequence)
-        val meals = dietProgram.meals
+        daysAdapter = DaysAdapter(
+            days = dietProgram.days,
+            onDayClick = { day ->
+                // Handle day click if needed
+            },
+            onMealClick = { meal ->
+                // Handle meal click if needed
+            }
+        )
         
-        mealsAdapter = MealsAdapter(meals) { meal ->
-            // Handle meal click if needed
-        }
-        
-        mealsRecyclerView.adapter = mealsAdapter
+        daysRecyclerView.adapter = daysAdapter
     }
-} 
+} */

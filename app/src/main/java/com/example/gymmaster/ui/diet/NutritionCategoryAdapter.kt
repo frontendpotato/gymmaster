@@ -32,6 +32,7 @@ class NutritionCategoryAdapter(
         private val nutritionCategoryImage: ImageView = itemView.findViewById(R.id.nutritionCategoryImage)
         private val nutritionCategoryName: TextView = itemView.findViewById(R.id.nutritionCategoryName)
         private val nutritionCategoryDescription: TextView = itemView.findViewById(R.id.nutritionCategoryDescription)
+      //  private val ingredientsCount: TextView = itemView.findViewById(R.id.ingredientsCount)
         private val viewDetailsButton: MaterialButton = itemView.findViewById(R.id.viewDetailsButton)
 
         fun bind(nutritionCategory: NutritionCategory) {
@@ -42,6 +43,7 @@ class NutritionCategoryAdapter(
                 
             nutritionCategoryName.setText(nutritionCategory.nameResId)
             nutritionCategoryDescription.setText(nutritionCategory.descriptionResId)
+        //    ingredientsCount.text = "${nutritionCategory.ingredients.size} ingredients"
             
             viewDetailsButton.setOnClickListener { onNutritionCategoryClick(nutritionCategory) }
             itemView.setOnClickListener { onNutritionCategoryClick(nutritionCategory) }

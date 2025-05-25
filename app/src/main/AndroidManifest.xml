@@ -54,6 +54,7 @@
         <activity
             android:name=".ui.diet.DietDetailsActivity"
             android:exported="false" />
+        <activity android:name=".ui.diet.NutritionDetailsActivity" />
     </application>
 
 </manifest>

@@ -1,3 +1,4 @@
+/*
 package com.example.gymmaster.ui.diet
 
 import android.view.LayoutInflater
@@ -31,6 +32,7 @@ class DietProgramAdapter(
         private val dietProgramImage: ImageView = itemView.findViewById(R.id.dietProgramImage)
         private val dietProgramName: TextView = itemView.findViewById(R.id.dietProgramName)
         private val dietProgramDescription: TextView = itemView.findViewById(R.id.dietProgramDescription)
+       // private val daysCount: TextView = itemView.findViewById(R.id.daysCount)
 
         fun bind(dietProgram: DietProgram) {
             Glide.with(itemView.context)
@@ -40,8 +42,9 @@ class DietProgramAdapter(
                 
             dietProgramName.setText(dietProgram.nameResId)
             dietProgramDescription.setText(dietProgram.descriptionResId)
+          //  daysCount.text = "${dietProgram.days.size} days"
             
             itemView.setOnClickListener { onDietProgramClick(dietProgram) }
         }
     }
-} 
+} */

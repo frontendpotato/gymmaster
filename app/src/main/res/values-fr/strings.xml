@@ -66,4 +66,48 @@
     <string name="persons_label">Personnes:</string>
     <string name="available_offers">Offres Disponibles</string>
     <string name="book_now">Réserver Maintenant</string>
+
+    <string name="ingredient">Ingrédient</string>
+    <string name="quantity">Quantité</string>
+    <string name="calories">Calories</string>
+    <string name="protein">Protéines</string>
+    <string name="carbs">Glucides</string>
+    <string name="fats">Lipides</string>
+
+    <!-- Diet Program Strings -->
+    <string name="diet_bulking">Régime Prise de Masse</string>
+    <string name="diet_bulking_description">Régime hypercalorique pour la prise de muscle</string>
+    <string name="diet_cutting">Régime Séchage</string>
+    <string name="diet_cutting_description">Régime hypocalorique pour la perte de graisse</string>
+    <string name="diet_maintenance">Régime Maintien</string>
+    <string name="diet_maintenance_description">Régime équilibré pour maintenir le poids</string>
+
+    <!-- Meal Strings -->
+    <string name="meal_breakfast">Petit-déjeuner</string>
+    <string name="meal_lunch">Déjeuner</string>
+    <string name="meal_dinner">Dîner</string>
+    <string name="meal_snack">Collation</string>
+
+    <!-- Ingredient Strings -->
+    <string name="ingredient_oatmeal">Flocons d\'avoine</string>
+    <string name="ingredient_banana">Banane</string>
+    <string name="ingredient_chicken_breast">Blanc de poulet</string>
+    <string name="ingredient_brown_rice">Riz brun</string>
+    <string name="ingredient_egg_whites">Blancs d\'œufs</string>
+    <string name="ingredient_spinach">Épinards</string>
+    <string name="ingredient_turkey_breast">Blanc de dinde</string>
+    <string name="ingredient_sweet_potato">Patate douce</string>
+    <string name="ingredient_greek_yogurt">Yaourt grec</string>
+    <string name="ingredient_berries">Mélange de baies</string>
+    <string name="ingredient_salmon">Saumon</string>
+    <string name="ingredient_quinoa">Quinoa</string>
+
+    <!-- Day Strings -->
+    <string name="day_1">Jour 1</string>
+    <string name="day_2">Jour 2</string>
+    <string name="day_3">Jour 3</string>
+    <string name="day_4">Jour 4</string>
+    <string name="day_5">Jour 5</string>
+    <string name="day_6">Jour 6</string>
+    <string name="day_7">Jour 7</string>
 </resources> 

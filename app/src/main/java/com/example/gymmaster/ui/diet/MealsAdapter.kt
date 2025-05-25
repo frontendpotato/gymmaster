@@ -3,7 +3,6 @@ package com.example.gymmaster.ui.diet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymmaster.R
@@ -15,11 +14,10 @@ class MealsAdapter(
 ) : RecyclerView.Adapter<MealsAdapter.MealViewHolder>() {
 
     class MealViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val mealImage: ImageView = view.findViewById(R.id.mealImage)
         val mealName: TextView = view.findViewById(R.id.mealName)
-        val mealDescription: TextView = view.findViewById(R.id.mealDescription)
         val caloriesText: TextView = view.findViewById(R.id.caloriesText)
         val macrosText: TextView = view.findViewById(R.id.macrosText)
+       // val ingredientsCount: TextView = view.findViewById(R.id.ingredientsCount)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
@@ -30,14 +28,14 @@ class MealsAdapter(
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         val meal = meals[position]
+        val context = holder.itemView.context
         
-        holder.mealImage.setImageResource(meal.imageResId)
-        holder.mealName.text = holder.itemView.context.getString(meal.nameResId)
-        holder.mealDescription.text = holder.itemView.context.getString(meal.descriptionResId)
+        holder.mealName.text = context.getString(meal.nameResId)
         
         // Format macros
-        holder.caloriesText.text = "${meal.calories} kcal"
-        holder.macrosText.text = "P: ${meal.protein}g | C: ${meal.carbs}g | F: ${meal.fat}g"
+        holder.caloriesText.text = "${meal.totalCalories} kcal"
+        holder.macrosText.text = "P: ${meal.totalProtein}g | C: ${meal.totalCarbs}g | F: ${meal.totalFat}g"
+      //  holder.ingredientsCount.text = "${meal.ingredients.size} ingredients"
         
         holder.itemView.setOnClickListener {
             onMealClick(meal)

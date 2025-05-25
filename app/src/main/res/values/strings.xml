@@ -38,7 +38,6 @@
     <string name="exercise_dumbbell_flyes">Dumbbell Flyes</string>
     <string name="exercise_pushups">Push-ups</string>
     <string name="exercise_cable_crossover">Cable Crossover</string>
-
     <string name="exercise_pullups">Pull-ups</string>
     <string name="exercise_barbell_rows">Barbell Rows</string>
     <string name="exercise_lat_pulldown">Lat Pulldown</string>
@@ -141,26 +140,17 @@
 
     <!-- Diet Programs -->
     <string name="diet_bulking">Bulking Diet</string>
-    <string name="diet_bulking_description">High-calorie diet designed to help you gain muscle mass</string>
+    <string name="diet_bulking_description">High-calorie diet for muscle gain</string>
     <string name="diet_cutting">Cutting Diet</string>
-    <string name="diet_cutting_description">Low-calorie diet designed to help you lose fat while preserving muscle</string>
+    <string name="diet_cutting_description">Calorie-controlled diet for fat loss</string>
     <string name="diet_maintenance">Maintenance Diet</string>
-    <string name="diet_maintenance_description">Balanced diet designed to maintain your current weight</string>
+    <string name="diet_maintenance_description">Balanced diet for maintaining weight</string>
 
     <!-- Meals -->
-    <string name="meal_bulking_breakfast">Protein-Packed Breakfast</string>
-    <string name="meal_bulking_breakfast_description">Start your day with this high-protein, high-calorie breakfast</string>
-    <string name="meal_bulking_lunch">Power Lunch</string>
-    <string name="meal_bulking_lunch_description">Fuel your workouts with this balanced lunch</string>
-    <string name="meal_bulking_dinner">Recovery Dinner</string>
-    <string name="meal_bulking_dinner_description">Replenish your body with this nutrient-rich dinner</string>
-
-    <string name="meal_cutting_breakfast">Lean Breakfast</string>
-    <string name="meal_cutting_breakfast_description">Start your day with this protein-rich, low-calorie breakfast</string>
-    <string name="meal_cutting_lunch">Light Lunch</string>
-    <string name="meal_cutting_lunch_description">Stay energized with this balanced, low-calorie lunch</string>
-    <string name="meal_cutting_dinner">Light Dinner</string>
-    <string name="meal_cutting_dinner_description">End your day with this protein-rich, low-calorie dinner</string>
+    <string name="meal_breakfast">Breakfast</string>
+    <string name="meal_lunch">Lunch</string>
+    <string name="meal_dinner">Dinner</string>
+    <string name="meal_snack">Snack</string>
 
     <!-- Nutrition Categories -->
     <string name="nutrition_protein">Protein Sources</string>
@@ -192,10 +182,7 @@
     <!-- Diet UI -->
     <string name="diet_programs">Diet Programs</string>
     <string name="nutrition_guide">Nutrition Guide</string>
-    <string name="calories">Calories: %1$d</string>
-    <string name="protein">Protein: %1$dg</string>
-    <string name="carbs">Carbs: %1$dg</string>
-    <string name="fat">Fat: %1$dg</string>
+
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
     <string name="view_details">View Details</string>
@@ -207,4 +194,40 @@
     <string name="persons_label">Persons:</string>
     <string name="available_offers">Available Offers</string>
     <string name="book_now">Book Now</string>
+
+    <string name="ingredient">Ingredient</string>
+    <string name="quantity">Quantity</string>
+    <string name="calories">Calories</string>
+    <string name="protein">Protein</string>
+    <string name="carbs">Carbs</string>
+    <string name="fats">Fats</string>
+
+    <!-- Ingredient Strings -->
+    <string name="ingredient_oatmeal">Oatmeal</string>
+    <string name="ingredient_banana">Banana</string>
+    <string name="ingredient_chicken_breast">Chicken Breast</string>
+    <string name="ingredient_brown_rice">Brown Rice</string>
+    <string name="ingredient_egg_whites">Egg Whites</string>
+    <string name="ingredient_spinach">Spinach</string>
+    <string name="ingredient_turkey_breast">Turkey Breast</string>
+    <string name="ingredient_sweet_potato">Sweet Potato</string>
+    <string name="ingredient_greek_yogurt">Greek Yogurt</string>
+    <string name="ingredient_berries">Mixed Berries</string>
+    <string name="ingredient_salmon">Salmon</string>
+    <string name="ingredient_quinoa">Quinoa</string>
+
+    <!-- Day Strings -->
+    <string name="day_1">Day 1</string>
+    <string name="day_2">Day 2</string>
+    <string name="day_3">Day 3</string>
+    <string name="day_4">Day 4</string>
+    <string name="day_5">Day 5</string>
+    <string name="day_6">Day 6</string>
+    <string name="day_7">Day 7</string>
+
+    <!-- Diet Details -->
+    <string name="calories_format">%d cal</string>
+    <string name="protein_format">%.1fg protein</string>
+    <string name="carbs_format">%.1fg carbs</string>
+    <string name="fat_format">%.1fg fat</string>
 </resources>

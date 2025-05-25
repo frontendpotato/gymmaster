@@ -60,4 +60,48 @@
     <string name="persons_label">الأشخاص:</string>
     <string name="available_offers">العروض المتاحة</string>
     <string name="book_now">احجز الآن</string>
+
+    <string name="ingredient">المكون</string>
+    <string name="quantity">الكمية</string>
+    <string name="calories">السعرات</string>
+    <string name="protein">البروتين</string>
+    <string name="carbs">الكربوهيدرات</string>
+    <string name="fats">الدهون</string>
+
+    <!-- Diet Program Strings -->
+    <string name="diet_bulking">حمية زيادة الوزن</string>
+    <string name="diet_bulking_description">حمية عالية السعرات لزيادة العضلات</string>
+    <string name="diet_cutting">حمية التنشيف</string>
+    <string name="diet_cutting_description">حمية منخفضة السعرات لحرق الدهون</string>
+    <string name="diet_maintenance">حمية الصيانة</string>
+    <string name="diet_maintenance_description">حمية متوازنة للحفاظ على الوزن</string>
+
+    <!-- Meal Strings -->
+    <string name="meal_breakfast">الإفطار</string>
+    <string name="meal_lunch">الغداء</string>
+    <string name="meal_dinner">العشاء</string>
+    <string name="meal_snack">وجبة خفيفة</string>
+
+    <!-- Ingredient Strings -->
+    <string name="ingredient_oatmeal">الشوفان</string>
+    <string name="ingredient_banana">الموز</string>
+    <string name="ingredient_chicken_breast">صدر الدجاج</string>
+    <string name="ingredient_brown_rice">الأرز البني</string>
+    <string name="ingredient_egg_whites">بياض البيض</string>
+    <string name="ingredient_spinach">السبانخ</string>
+    <string name="ingredient_turkey_breast">صدر الديك الرومي</string>
+    <string name="ingredient_sweet_potato">البطاطا الحلوة</string>
+    <string name="ingredient_greek_yogurt">الزبادي اليوناني</string>
+    <string name="ingredient_berries">التوت المختلط</string>
+    <string name="ingredient_salmon">السلمون</string>
+    <string name="ingredient_quinoa">الكينوا</string>
+
+    <!-- Day Strings -->
+    <string name="day_1">اليوم 1</string>
+    <string name="day_2">اليوم 2</string>
+    <string name="day_3">اليوم 3</string>
+    <string name="day_4">اليوم 4</string>
+    <string name="day_5">اليوم 5</string>
+    <string name="day_6">اليوم 6</string>
+    <string name="day_7">اليوم 7</string>
 </resources> 
